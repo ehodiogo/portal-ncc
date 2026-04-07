@@ -4,7 +4,7 @@ from schema import Aluno
 egressos: list[Aluno] = []
 regulares: list[Aluno] = []
 
-with open('Alunos CC e SI.csv', mode='r', newline='', encoding='latin1') as file:
+with open('Alunos CC e SI-NORMALIZADO.csv', mode='r', newline='', encoding='latin1') as file:
     reader = csv.reader(file)
     for row in reader:
         id_aluno = row[0]
