@@ -1,5 +1,6 @@
 import csv
 from schema import Aluno
+from normalizador01 import remover_acentos
 
 egressos: list[Aluno] = []
 regulares: list[Aluno] = []
@@ -70,9 +71,10 @@ with open('Alunos CC e SI-NORMALIZADO.csv', mode='r', newline='', encoding='lati
         print("Email:", email)
         print("-" * 40)
 
-        egressos_status = ["Abandono", "Formado", "Cancelamento de Matrícula", "Transferência Externa", "Transferência Interna", "Transferência"]
+        # egressos_status = ["Abandono", "Formado", "Cancelamento de Matrícula", "Transferência Externa", "Transferência Interna", "Transferência", "Jubilamento", "Cancelamento Convênio", "Cancelamento de Matrícula e Vínculo - Resolução N. 033/2015", "Classificado(a) sem Matrícula"]
+        # lista_maiuscula = [remover_acentos(item.upper()) for item in egressos_status]
 
-        if situacao in egressos_status:
+        if situacao != "ESTUDANTE REGULAR":
             egressos.append(aluno)
         else:
             regulares.append(aluno)
